@@ -16,6 +16,8 @@ dependencies = [
     "alembic>=1.16.0",
     "pydantic-settings>=2.10.0",
     "python-dotenv>=1.1.0",
+    "swagger-ui>=0.1.2",
+    "httpx2>=2.7.0",
 ]
 
 [dependency-groups]
