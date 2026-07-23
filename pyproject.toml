@@ -1,5 +1,5 @@
 [project]
-name = "distributed-job-proocessing-platform"
+name = "distributed-job-processing-platform"
 version = "0.1.0"
 description = "A REST API for tracking personal finances built with FastAPI."
 readme = "README.md"

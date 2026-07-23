@@ -15,8 +15,9 @@ async def lifespan(app: FastAPI) -> Any:
 def create_app() -> FastAPI:
     app = FastAPI(title="Jobs API", version="1.0.0", lifespan=lifespan)
 
+    app.include_router(jobs.router, prefix="/jobs", tags=["jobs"])
+    app.include_router(health.router)  # /health and /metrics live at root, no prefix
+
     return app
 
 app = create_app()
-app.include_router(jobs.router, prefix="/jobs", tags=["jobs"])
-app.include_router(health.router)  # /health and /metrics live at root, no prefix
