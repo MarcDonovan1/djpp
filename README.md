@@ -28,4 +28,4 @@ make run
 ```
 
 Future work
-TODO: Finish thei section
+TODO: Finish this section
