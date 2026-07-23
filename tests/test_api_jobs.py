@@ -1,5 +1,8 @@
 from typing import TYPE_CHECKING
-from uuid import uuid4
+from uuid import UUID, uuid4
+
+from app.api.jobs import _jobs
+from app.models.job import JobStatus
 
 if TYPE_CHECKING:
     from fastapi.testclient import TestClient
@@ -91,11 +94,6 @@ def test_retry_job_from_pending_returns_409(client: TestClient) -> None:
 
 
 def test_retry_job_from_failed_succeeds(client: TestClient) -> None:
-    from uuid import UUID
-
-    from app.api.jobs import _jobs
-    from app.models.job import JobStatus
-
     created = client.post("/jobs", json={"name": "job-a"}).json()
     job_id = UUID(created["id"])
     _jobs[job_id].status = JobStatus.FAILED  # simulate a failed job directly
@@ -108,11 +106,6 @@ def test_retry_job_from_failed_succeeds(client: TestClient) -> None:
 
 
 def test_retry_job_from_succeeded_succeeds(client: TestClient) -> None:
-    from uuid import UUID
-
-    from app.api.jobs import _jobs
-    from app.models.job import JobStatus
-
     created = client.post("/jobs", json={"name": "job-a"}).json()
     job_id = UUID(created["id"])
     _jobs[job_id].status = JobStatus.SUCCEEDED
@@ -123,11 +116,6 @@ def test_retry_job_from_succeeded_succeeds(client: TestClient) -> None:
 
 
 def test_retry_job_increments_attempts_each_time(client: TestClient) -> None:
-    from uuid import UUID
-
-    from app.api.jobs import _jobs
-    from app.models.job import JobStatus
-
     created = client.post("/jobs", json={"name": "job-a"}).json()
     job_id = UUID(created["id"])
 

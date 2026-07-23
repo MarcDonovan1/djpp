@@ -1,3 +1,4 @@
+from collections.abc import Generator
 from typing import Any
 
 import pytest
@@ -22,7 +23,7 @@ def client(app: FastAPI) -> TestClient:
 
 
 @pytest.fixture(autouse=True)
-def clear_jobs_store() -> Any:
+def clear_jobs_store() -> Generator[Any,Any,Any]:
     """Reset the in-memory job store between tests so they don't leak state."""
     from app.api.jobs import _jobs
 
