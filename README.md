@@ -1,19 +1,31 @@
-# djpp
-Distributed Job Processing Platform
+# Distributed Job Processing Platform
 
-DJPP is a distributed job processing platform that allows users and systems to submit computational tasks, process them asynchronously using worker processes, and monitor execution lifecycle, failures, and performance.
+A scalable distributed job processing platform inspired by systems such as Celery, AWS SQS, and Sidekiq.
 
-# V1
-## API Operations
-You will be able to do the following things
-* Create Jobs
-* Get a Job
-* List Jobs
-* Cancel a Job
-* Retry a Job
+Features
 
-## DataBase Schema
+- REST API
+- Worker processes
+- Job scheduling
+- Retry policies
+- Authentication
+- Dashboard
+- SQL persistence
+- Docker support
 
-There will be one table
+Architecture
 
+[diagram]
 
+Tech Stack
+
+...
+
+Running locally
+
+```
+make run
+```
+
+Future work
+TODO: Finish this section
